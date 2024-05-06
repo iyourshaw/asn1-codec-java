@@ -56,9 +56,14 @@ public class Asn1CodecWrapper {
         tempFile.delete();
 
         // Remove wrapping from result to just return the XER
-        String messageFrame = extractMessageFrame(result);
-        log.info("Message frame: {}", messageFrame);
-        return messageFrame;
+        try {
+            String messageFrame = extractMessageFrame(result);
+            log.info("Message frame: {}", messageFrame);
+            return messageFrame;
+        } catch (Exception e) {
+            log.error("Error extracting message frame: {}, returning result which is probably an error message", e);
+            return result;
+        }
     }
 
 
