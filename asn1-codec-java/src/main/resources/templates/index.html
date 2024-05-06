@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASN1 Decoder</title>
+    <style>
+        body { font-family: sans-serif;  }
+        div.outer { width: 100%}
+        div.inner { width: 80%; margin-left: auto; margin-right: auto}
+        textarea { width:100%; }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="inner">
+
+        <h1>J2735 ASN.1 Decoder</h1>
+
+        <form action="#" method="post" >
+            <button type="submit" th:formaction="@{/bsmExample}">Paste BSM Example</button>
+            <button type="submit" th:formaction="@{/spatExample}">Paste SPaT Example</button>
+            <button type="submit" th:formaction="@{/mapExample}">Paste MAP Example</button>
+            <button type="submit" th:formaction="@{/timExample}">Paste TIM Example</button>
+        </form>
+
+        <div>
+            <form action="#" th:action="@{/decode}" th:object="${decodeMsg}" method="post" >
+                <h3><label for="message">Input UPER/hex:</label></h3>
+                <textarea style="height:100px" id="message" name="message" th:field="*{text}"></textarea>
+                <br/>
+                <button type="submit">Decode</button>
+            </form>
+        </div>
+
+        <h3><label for="decoded">Decoded XER:</label></h3>
+        <textarea style="height:400px" id="decoded" name="decoded" th:text="${message}"></textarea>
+
+
+    </div>
+</div>
+</body>
+</html>

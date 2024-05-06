@@ -1,0 +1,16 @@
+services:
+  asn1-codec-java:
+    build: .
+    image: asn1-codec-java:latest
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      DOCKER_HOST_IP: ${DOCKER_HOST_IP}
+      KAFKA_TYPE: "ON-PREM"
+      ACM_CONFIG_FILE: adm.properties
+      ACM_LOG_TO_CONSOLE: ${ACM_LOG_TO_CONSOLE}
+      ACM_LOG_TO_FILE: ${ACM_LOG_TO_FILE}
+      ACM_LOG_LEVEL: ${ACM_LOG_LEVEL}
+
+

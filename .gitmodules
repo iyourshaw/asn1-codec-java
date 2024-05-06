@@ -1,0 +1,4 @@
+[submodule "asn1_codec"]
+	path = asn1_codec
+	url = https://github.com/iyourshaw/asn1_codec.git
+	branch = standalone-test
