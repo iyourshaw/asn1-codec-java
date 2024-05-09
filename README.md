@@ -48,6 +48,8 @@ Click one of the buttons to load an example message, or paste UPER hex into the 
 
 ## Known Issues/Limitations
 
-* asn1_codec is only known to run on Alpine Linux 3.12.  It does not work on the latest Alpine (3.19 as of May 2024).
+* asn1_codec has been tested and is known to build and run on the following OSs:
+  * Alpine Linux 3.12 - use `Dockerfile` (It does not work on the latest Alpine, 3.19 as of May 2024)
+  * Amazon Linux 2023 - use `Dockerfile.amazonlinux` (It does not work on Amazon Linux 2 due to an older glibc version)
 
 

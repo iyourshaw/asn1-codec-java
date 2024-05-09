@@ -1,6 +1,8 @@
 services:
   asn1-codec-java:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.amazonlinux
     image: asn1-codec-java:latest
     restart: always
     ports:
