@@ -32,7 +32,7 @@ public class XmlUtils {
     }
 
     public static String wrapHex(String hex) {
-        return String.format(XML_TEMPLATE, hex);
+        return String.format(XML_TEMPLATE_WITH_1609dot2, hex);
     }
 
     public static String prettyPrint(Node node)  {
@@ -60,6 +60,32 @@ public class XmlUtils {
                     <encodings>
                         <elementType>MessageFrame</elementType>
                         <encodingRule>UPER</encodingRule>
+                    </encodings>
+                </encodings>
+                <payloadType>us.dot.its.jpo.ode.model.OdeAsn1Payload</payloadType>
+            </metadata>
+            <payload>
+                <dataType>us.dot.its.jpo.ode.model.OdeHexByteArray</dataType>
+                <data>
+                    <bytes>%s</bytes>
+                </data>
+            </payload>
+        </OdeAsn1Data>
+        """;
+
+    public static final String XML_TEMPLATE_WITH_1609dot2 = """
+            <OdeAsn1Data>
+            <metadata>
+                <encodings>
+                    <encodings>
+                        <elementName>unsecuredData</elementName>
+                        <elementType>MessageFrame</elementType>
+                        <encodingRule>UPER</encodingRule>
+                    </encodings>
+                    <encodings>
+                        <elementName>data</elementName>
+                        <elementType>Ieee1609Dot2Data</elementType>
+                        <encodingRule>COER</encodingRule>
                     </encodings>
                 </encodings>
                 <payloadType>us.dot.its.jpo.ode.model.OdeAsn1Payload</payloadType>
